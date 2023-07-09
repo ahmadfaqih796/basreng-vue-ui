@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../components/auth/Login.vue";
 // import Register from "../components/Register.vue";
-import Dashboard from "../components/Dashboard.vue";
+import Dashboard from "../components/admin/Dashboard.vue";
 
 Vue.use(VueRouter);
 
