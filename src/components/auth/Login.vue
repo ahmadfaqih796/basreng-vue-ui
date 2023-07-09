@@ -47,6 +47,7 @@
  </template>
  
  <script>
+ import axios from 'axios';
  export default {
    data() {
      return {
@@ -55,9 +56,25 @@
      }
    },
    methods: {
-     login() {
-       // Tambahkan logika untuk melakukan login
-     }
-   }
+    login() {
+      // Lakukan permintaan login ke server menggunakan Axios
+      axios.post('/api/login', {
+        email: this.email,
+        password: this.password
+      })
+        .then(response => {
+          // Login berhasil
+          // Simpan token atau status login di local storage atau state Vuex
+          localStorage.setItem('isLoggedIn', true);
+
+          // Redirect ke halaman dashboard atau halaman setelah login
+          this.$router.push('/dashboard');
+        })
+        .catch(error => {
+          // Login gagal
+          console.error(error);
+        });
+      }
+    }
  }
  </script>
